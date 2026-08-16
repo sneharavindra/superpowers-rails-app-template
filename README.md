@@ -1,24 +1,3 @@
-# README
+# TalkyForm
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is the accompanying Rails application for the [sneharavindra/superpowers-rails](https://github.com/sneharavindra/superpowers-rails) repository. It serves as a reference codebase demonstrating the conventions, skills, and workflows defined in that plugin.
