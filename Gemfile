@@ -71,3 +71,5 @@ end
 gem "tidewave", "~> 0.8.2", group: :development
 
 gem "lowfidelity", "~> 0.0.1", group: :development
+
+gem "heroicon", "~> 1.0"
