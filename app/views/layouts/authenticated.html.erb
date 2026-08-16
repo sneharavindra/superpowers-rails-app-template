@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render "layouts/head" %>
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <nav class="flex items-center justify-between px-5 py-4 border-b border-base-300">
+      <%= link_to "Sneha's App", dashboard_path, class: "font-bold text-lg" %>
+
+      <div class="flex items-center gap-4">
+        <span class="text-sm text-base-content/70"><%= Current.user.email_address %></span>
+        <%= button_to "Sign out", session_path, method: :delete, class: "text-sm underline cursor-pointer bg-transparent border-0 p-0" %>
+      </div>
+    </nav>
+
+    <main class="container mx-auto px-5 py-8 flex-1">
+      <%= yield %>
+    </main>
+
+    <footer class="px-5 py-4 border-t border-base-300 text-center text-sm text-base-content/60">
+      &copy; <%= Date.current.year %>
+      <%= link_to "Sneha's App", "https://github.com/sneharavindra/superpowers-rails-app-template", target: "_blank", rel: "noopener noreferrer", class: "underline" %>
+    </footer>
+  </body>
+</html>
