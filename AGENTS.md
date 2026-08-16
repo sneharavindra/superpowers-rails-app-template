@@ -1,5 +1,7 @@
 # This Rails App
 
+> `CLAUDE.md` is a symlink to this file — edit here, not there.
+
 This Rails app is a Rails 8.1 web application built on the Hotwire stack (Turbo + Stimulus) with Tailwind CSS and DaisyUI. It currently provides authentication, session management, and multi-tenant account foundations.
 
 These instructions are defaults with reasons, not law — when the code in front of you disagrees, take the better path and flag the conflict. Invariants (data loss, security, CI gates) are non-negotiable.
