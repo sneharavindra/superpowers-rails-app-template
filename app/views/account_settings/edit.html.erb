@@ -1,0 +1,26 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <% if notice = flash[:notice] %>
+    <div role="alert" class="alert alert-success mb-5"><%= notice %></div>
+  <% end %>
+
+  <% if @account.errors.any? %>
+    <div role="alert" class="alert alert-error mb-5">
+      <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1 class="font-bold text-4xl mb-6">Account settings</h1>
+
+  <%= form_with model: @account, url: account_settings_path, method: :patch, class: "contents" do |form| %>
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend">Account name</legend>
+      <%= form.text_field :name, required: true, class: "input w-full" %>
+    </fieldset>
+
+    <%= form.submit "Save", class: "btn btn-primary mt-4" %>
+  <% end %>
+</div>

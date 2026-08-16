@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
   resource :user_settings, only: %i[edit update]
+  resource :account_settings, only: %i[edit update]
 
   get "up" => "rails/health#show", as: :rails_health_check
 end
