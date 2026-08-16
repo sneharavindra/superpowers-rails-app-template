@@ -44,6 +44,16 @@ Hotwire stack: Turbo Drive for navigation, Turbo Frames/Streams for partial upda
 
 Add Stimulus controllers in `app/javascript/controllers/`. Keep them thin; push logic to the server via Turbo.
 
+## Icons
+
+[Heroicons](https://heroicons.com/) via the `heroicon` gem is the standard icon library — DaisyUI does not ship icons. Default variant is `:outline` (set in `config/initializers/heroicon.rb`). Use the helper directly in views:
+
+```erb
+<%= heroicon "check", options: { class: "size-5" } %>
+```
+
+Override per-icon with `variant: :solid` or `variant: :mini` when needed.
+
 ## Testing
 
 Minitest with fixtures and parallel execution. Tests live in `test/` mirroring `app/`. Use `SessionTestHelper` for authenticated controller tests. Run the full suite with `bin/rails test`.
