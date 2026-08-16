@@ -15,17 +15,23 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     assert_select "h1", text: /Welcome/
   end
 
-  test "authenticated user sees nav with brand, email, and sign out" do
+  test "authenticated user sees nav with brand and a user dropdown" do
     user = users(:one)
     post session_url, params: { email_address: user.email_address, password: "password" }
 
     get dashboard_url
     assert_select "nav" do
       assert_select "a[href=?]", dashboard_path, text: "Sneha's App"
-      assert_select "span", text: user.email_address
-      assert_select "form[action=?][method=post]", session_path do
-        assert_select "input[name=_method][value=delete]", count: 1
-        assert_select "button[type=submit]", text: "Sign out"
+      assert_select "details.dropdown" do
+        assert_select "summary.avatar"
+        assert_select "li", text: /#{Regexp.escape(user.email_address)}/ do
+          assert_select "svg"
+        end
+        assert_select "form[action=?][method=post]", session_path do
+          assert_select "input[name=_method][value=delete]", count: 1
+          assert_select "button[type=submit] svg"
+          assert_select "button[type=submit]", text: /Sign out/
+        end
       end
     end
   end

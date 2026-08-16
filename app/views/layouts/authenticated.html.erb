@@ -8,15 +8,26 @@
     <nav class="flex items-center justify-between px-5 py-4 border-b border-base-300">
       <%= link_to "Sneha's App", dashboard_path, class: "font-bold text-lg" %>
 
-      <div class="flex items-center gap-4">
-        <div class="avatar avatar-placeholder">
+      <details class="dropdown dropdown-end">
+        <summary class="avatar avatar-placeholder cursor-pointer list-none">
           <div class="bg-neutral text-neutral-content w-8 rounded-full">
             <span class="text-xs"><%= Current.user.email_address.first.upcase %></span>
           </div>
-        </div>
-        <span class="text-sm text-base-content/70"><%= Current.user.email_address %></span>
-        <%= button_to "Sign out", session_path, method: :delete, class: "text-sm underline cursor-pointer bg-transparent border-0 p-0" %>
-      </div>
+        </summary>
+
+        <ul class="dropdown-content menu bg-base-100 rounded-box z-1 w-56 p-2 shadow-sm">
+          <li class="menu-title flex flex-row items-center gap-2 text-base-content">
+            <%= heroicon "user", options: { class: "size-4" } %>
+            <span class="text-sm"><%= Current.user.email_address %></span>
+          </li>
+          <li>
+            <%= button_to session_path, method: :delete, class: "flex items-center gap-2 w-full text-left bg-transparent border-0 cursor-pointer" do %>
+              <%= heroicon "arrow-right-on-rectangle", options: { class: "size-4" } %>
+              Sign out
+            <% end %>
+          </li>
+        </ul>
+      </details>
     </nav>
 
     <main class="container mx-auto px-5 py-8 flex-1">
