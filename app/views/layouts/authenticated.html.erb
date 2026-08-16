@@ -9,6 +9,11 @@
       <%= link_to "Sneha's App", dashboard_path, class: "font-bold text-lg" %>
 
       <div class="flex items-center gap-4">
+        <div class="avatar avatar-placeholder">
+          <div class="bg-neutral text-neutral-content w-8 rounded-full">
+            <span class="text-xs"><%= Current.user.email_address.first.upcase %></span>
+          </div>
+        </div>
         <span class="text-sm text-base-content/70"><%= Current.user.email_address %></span>
         <%= button_to "Sign out", session_path, method: :delete, class: "text-sm underline cursor-pointer bg-transparent border-0 p-0" %>
       </div>

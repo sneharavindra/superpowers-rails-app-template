@@ -87,6 +87,8 @@ Plugin source: https://github.com/sneharavindra/superpowers-rails
 
 Never rationalize skipping a skill because the task feels small. If there is a 1% chance it applies, invoke it.
 
+`daisyui` (`.claude/skills/daisyui/SKILL.md`, mirrored from https://daisyui.com/SKILL.md): DaisyUI 5 component/class reference — check it before writing any Tailwind/DaisyUI markup.
+
 ## Business Process Management with FOSM
 
 This Rails app uses `fosm-rails` to model business objects that have a **lifecycle** — objects whose permitted operations depend on their current state. The engine is mounted at `/fosm`. FOSM apps live under `app/models/fosm/`, `app/controllers/fosm/`, `app/views/fosm/`, and `app/agents/fosm/`.
