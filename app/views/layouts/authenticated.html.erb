@@ -26,6 +26,18 @@
             <span class="text-sm"><%= Current.user.email_address %></span>
           </li>
           <li>
+            <%= link_to edit_user_settings_path, class: "flex items-center gap-2" do %>
+              <%= heroicon "cog-6-tooth", options: { class: "size-4" } %>
+              User Settings
+            <% end %>
+          </li>
+          <li>
+            <%= link_to edit_account_settings_path, class: "flex items-center gap-2" do %>
+              <%= heroicon "building-office", options: { class: "size-4" } %>
+              Account Settings
+            <% end %>
+          </li>
+          <li>
             <%= button_to session_path, method: :delete, class: "flex items-center gap-2 w-full text-left bg-transparent border-0 cursor-pointer" do %>
               <%= heroicon "arrow-right-on-rectangle", options: { class: "size-4" } %>
               Sign out

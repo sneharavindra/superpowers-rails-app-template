@@ -27,6 +27,12 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
         assert_select "li", text: /#{Regexp.escape(user.email_address)}/ do
           assert_select "svg"
         end
+        assert_select "a[href=?]", edit_user_settings_path, text: /User Settings/ do
+          assert_select "svg"
+        end
+        assert_select "a[href=?]", edit_account_settings_path, text: /Account Settings/ do
+          assert_select "svg"
+        end
         assert_select "form[action=?][method=post]", session_path do
           assert_select "input[name=_method][value=delete]", count: 1
           assert_select "button[type=submit] svg"
