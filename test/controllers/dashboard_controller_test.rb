@@ -36,6 +36,20 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "authenticated user sees a collapsible sidebar with a dashboard link" do
+    user = users(:one)
+    post session_url, params: { email_address: user.email_address, password: "password" }
+
+    get dashboard_url
+    assert_select "label[for=sidebar-drawer].lg\\:hidden svg"
+    assert_select "input#sidebar-drawer[type=checkbox].drawer-toggle"
+    assert_select "div.drawer-side" do
+      assert_select "a[href=?]", dashboard_path, text: /Dashboard/ do
+        assert_select "svg"
+      end
+    end
+  end
+
   test "authenticated user sees footer with copyright and github link" do
     user = users(:one)
     post session_url, params: { email_address: user.email_address, password: "password" }
