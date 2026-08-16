@@ -1,0 +1,26 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <% if notice = flash[:notice] %>
+    <div role="alert" class="alert alert-success mb-5"><%= notice %></div>
+  <% end %>
+
+  <% if @user.errors.any? %>
+    <div role="alert" class="alert alert-error mb-5">
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1 class="font-bold text-4xl mb-6">User settings</h1>
+
+  <%= form_with model: @user, url: user_settings_path, method: :patch, class: "contents" do |form| %>
+    <fieldset class="fieldset">
+      <legend class="fieldset-legend">Email address</legend>
+      <%= form.email_field :email_address, required: true, autocomplete: "email", class: "input w-full" %>
+    </fieldset>
+
+    <%= form.submit "Save", class: "btn btn-primary mt-4" %>
+  <% end %>
+</div>
