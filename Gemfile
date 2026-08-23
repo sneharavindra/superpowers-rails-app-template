@@ -68,7 +68,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "tidewave", "~> 0.8.2", group: :development
+gem "tidewave", "~> 0.9.0", group: :development
 
 gem "lowfidelity", "~> 0.0.1", group: :development
 
